@@ -20,7 +20,7 @@ public class OutBoxIntegrationTests : IClassFixture<CustomWebApplicationFactory<
 
         int countOfMessages = 5000;
         int batchSize = 10;
-        int concurrencyLevel = 500;
+        int concurrencyLevel = 5000;
 
         await using var sutScope = sut.Services.CreateAsyncScope();
         var testOutBox = sutScope.ServiceProvider.GetRequiredService<IOutBox>() as SQLServerOutBoxExtend;
@@ -39,7 +39,7 @@ public class OutBoxIntegrationTests : IClassFixture<CustomWebApplicationFactory<
         }
         finally
         {
-            //cleanup
+            //clean-up
             await testOutBox!.PurgeNotifications();
         }
 
