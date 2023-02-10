@@ -12,6 +12,7 @@ public class NotifDbContext : DbContext
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Notif>().HasIndex(x => x.CreatedAt).IsClustered(false);
         base.OnModelCreating(modelBuilder);
     }
 

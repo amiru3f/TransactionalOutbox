@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TransactionalOutbox.Model;
 
@@ -11,9 +12,11 @@ using TransactionalOutbox.Model;
 namespace TransactionalOutbox.Migrations
 {
     [DbContext(typeof(NotifDbContext))]
-    partial class NotifDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230210211319_index-for-notif")]
+    partial class indexfornotif
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
