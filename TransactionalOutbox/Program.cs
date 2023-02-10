@@ -14,6 +14,7 @@ if (!builder.Environment.IsEnvironment("Test"))
     builder.Services.AddHostedService<NotifSenderBackgroundService>();
 }
 
+builder.Services.AddHostedService<ImmigratorBackgroundService>();
 builder.Services.AddScoped<IOutBox, SQLServerOutBox>();
 builder.Services.AddSingleton<IBus, MockBus>();
 
