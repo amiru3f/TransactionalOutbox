@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\test\test.csproj" />
+    <ProjectReference Include="..\TransactionalOutbox\TransactionalOutbox.csproj" />
   </ItemGroup>
 
 </Project>

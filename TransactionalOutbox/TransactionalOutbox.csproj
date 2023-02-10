@@ -10,6 +10,6 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.2" />
   </ItemGroup>
   <ItemGroup>
-    <InternalsVisibleTo Include="unit" />
+    <InternalsVisibleTo Include="TransactionalOutbox.Tests" />
   </ItemGroup>
 </Project>
