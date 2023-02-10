@@ -39,6 +39,24 @@ public class NotifDbContext : DbContext
     }
 
     public DbSet<Notif> Notifications { set; get; }
+    public DbSet<Item> Items { set; get; }
+}
+
+[Table("Item")]
+public class Item
+{
+    [Key]
+    public int Id { set; get; }
+
+    public string Value { set; get; }
+
+    //
+    // Summary:
+    //  Stringifies the object as JSON
+    public override string ToString()
+    {
+        return System.Text.Json.JsonSerializer.Serialize(this);
+    }
 }
 
 [Table("Notif")]
@@ -50,4 +68,6 @@ public class Notif
     public DateTime CreatedAt { set; get; }
 
     public bool Sent { set; get; }
+
+    public string Event { set; get; }
 }

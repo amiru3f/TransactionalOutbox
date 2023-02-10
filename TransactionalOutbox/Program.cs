@@ -20,7 +20,23 @@ builder.Services.AddSingleton<IBus, MockBus>();
 var app = builder.Build();
 
 
-app.MapGet("/", (NotifDbContext context) => context.Notifications.FirstOrDefault()?.CreatedAt);
+app.MapGet("/add-item", async (NotifDbContext context) =>
+{
+    var item = new Item()
+    {
+        Value = Guid.NewGuid().ToString()
+    };
+
+    context.Items.Add(item);
+
+    context.Notifications.Add(new Notif()
+    {
+        CreatedAt = DateTime.Now,
+        Event = item.ToString()
+    });
+
+    await context.SaveChangesAsync();
+});
 
 app.Run();
 
