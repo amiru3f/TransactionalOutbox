@@ -27,6 +27,7 @@ public class OutBoxIntegrationTests : IClassFixture<CustomWebApplicationFactory<
             InitTestScope(sutScope, nameof(GivenOnlyOneOutboxMessage_MultipleSendExecutionsShouldReturnZeroAffectedRows));
             await testOutBox!.PurgeNotifications();
             await testOutBox.AddMockNotifications(1, 1);
+            var bus = sutScope.ServiceProvider.GetRequiredService<IBus>() as MockBus;
 
 
             //execute
@@ -36,6 +37,7 @@ public class OutBoxIntegrationTests : IClassFixture<CustomWebApplicationFactory<
             //assert
             Assert.Equal(1, rowsAffected);
             Assert.Equal(0, rowsAffectedAgain);
+            Assert.Equal(1, bus!.SentCount);
         }
         finally
         {

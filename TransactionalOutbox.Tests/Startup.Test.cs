@@ -17,7 +17,7 @@ public class CustomWebApplicationFactory<TProgram>
 
         builder.ConfigureServices(services =>
         {
-            services.AddSingleton<IBus, MockBus>();
+            services.AddScoped<IBus, MockBus>();
             services.AddScoped<IOutBox, SQLServerOutBoxExtend>();
         });
     }
