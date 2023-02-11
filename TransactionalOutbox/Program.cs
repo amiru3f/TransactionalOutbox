@@ -16,7 +16,7 @@ if (!builder.Environment.IsEnvironment("Test"))
 
 builder.Services.AddHostedService<ImmigratorBackgroundService>();
 builder.Services.AddScoped<IOutBox, SQLServerOutBox>();
-builder.Services.AddSingleton<IBus, MockBus>();
+builder.Services.AddSingleton<IBus, Bus>();
 
 var app = builder.Build();
 

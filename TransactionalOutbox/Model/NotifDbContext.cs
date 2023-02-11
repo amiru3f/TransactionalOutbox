@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
 
 namespace TransactionalOutbox.Model;
@@ -8,8 +9,12 @@ public class NotifDbContext : DbContext
 {
     public NotifDbContext(DbContextOptions options) : base(options)
     {
-
     }
+
+    public NotifDbContext()
+    {
+    }
+    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Notif>().HasIndex(x => x.CreatedAt).IsClustered(false);
@@ -47,6 +52,7 @@ public class NotifDbContext : DbContext
 public class Item
 {
     [Key]
+    [JsonIgnore]
     public int Id { set; get; }
 
     public string Value { set; get; }
