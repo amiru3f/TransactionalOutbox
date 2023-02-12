@@ -43,7 +43,7 @@ Consider that we choose ``application level outbox`` in order to solve the probl
 
 Tools and frameworks:
 
-* MSSQL / ORACLE 11g+
+* [MSSQL](https://www.madeiradata.com/post/readpast-what-is-it-good-for) / [ORACLE](https://www.dba-oracle.com/t_select_update_skip_locked.htm) 11g+
 * .Net 6+ Background (hosted) services
 * EFCore / Migrations
 * XUnit (for concurrency testing approaches)
