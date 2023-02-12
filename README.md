@@ -43,8 +43,13 @@ Consider that we choose ``application level outbox`` in order to solve the probl
 
 Tools and frameworks:
 
-* MSSQL
+* MSSQL / ORACLE 11g+
 * .Net 6+ Background (hosted) services
 * EFCore / Migrations
 * XUnit (for concurrency testing approaches)
 * RabbitMQ client (This is ommitted and implemented using mock object)
+
+## Downsides
+
+* Tuning the DBMS in order to handle syncrhonized availability groups (in terms of TempDB)
+* Debezium in enterprise problem might be a better solution if and only if it is maintainable by the org
