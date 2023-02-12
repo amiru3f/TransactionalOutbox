@@ -40,3 +40,11 @@ Consider that we choose ``application level outbox`` in order to solve the probl
 * Using SqlServer which is our main DB in some .Net environments
 
 ## Implementation Details
+
+Tools and frameworks:
+
+* MSSQL
+* .Net 6+ Background (hosted) services
+* EFCore / Migrations
+* XUnit (for concurrency testing approaches)
+* RabbitMQ client (This is ommitted and implemented using mock object)
